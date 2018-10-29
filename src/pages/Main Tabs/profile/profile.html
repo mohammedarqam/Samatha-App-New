@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary" >
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+  <ion-content padding>
+    <ion-card>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-4>
+              <img src="assets/imgs/blank-user.png" />
+            </ion-col>
+            <ion-col col-8 text-center>
+              <ion-row>
+              <h2>{{fName}}&nbsp;{{lName}}</h2><br/>
+              <h3>{{phone}}</h3><br/>
+              <h3>{{gender}}</h3>
+              </ion-row>
+              <ion-row>
+              <p ion-text></p>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    
+      </ion-card-content>
+    </ion-card>
+    <ion-list>
+      <ion-item (click)="gtCPass()" >
+        Change Password
+        <ion-icon item-end name="arrow-forward"></ion-icon>
+      </ion-item>
+    </ion-list> 
+    
+
+
+
+<button ion-button block color="danger" (click)="signOutConfirm()">Sign Out</button>
+
+
+</ion-content>
