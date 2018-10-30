@@ -32,9 +32,8 @@ export class ProfilePage {
         this.gender = snap.val().Gender;
         this.phone =snap.val().Phone;
         this.email = snap.val().Email;
-        console.log(snap.val());
-
     })
+    console.log(firebase.auth().currentUser.uid)
   }
 
   gtCPass(){

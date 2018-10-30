@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController, Tab, Tabs } from 'ionic-angular';
 import * as firebase from 'firebase';
+import { TabsPage } from '../../Extra/tabs/tabs';
 
 
 @IonicPage()
@@ -21,6 +22,15 @@ export class LoginPage {
     public navParams: NavParams
     ) {}
 
+    // ionViewDidEnter(){
+    //   let loading = this.loadingCtrl.create({
+    //     content: 'Please wait...'
+    //   });
+    //     if(firebase.auth().currentUser){
+    //     this.navCtrl.setRoot(TabsPage);
+    //     }
+    //     loading.dismiss();
+    // }
 
     checkData(){
       console.log(this.phone, this.pass,);
@@ -46,6 +56,7 @@ export class LoginPage {
   
     loading.present();
     firebase.auth().signInWithEmailAndPassword(malGen,this.pass).then(()=>{
+      this.navCtrl.setRoot(TabsPage)
       loading.dismiss()
     }).catch((er)=>{
       loading.dismiss();

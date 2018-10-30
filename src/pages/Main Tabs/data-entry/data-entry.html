@@ -5,6 +5,51 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+
+
+      <ion-item>
+        <ion-label floating>Select School</ion-label>
+        <ion-select [(ngModel)]="selSchool">
+          <ion-option *ngFor="let s of activeJobs" [value]="s.School">{{s.SchoolName}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Full Name</ion-label>
+        <ion-input type="text" [(ngModel)]="name" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Parent Name</ion-label>
+        <ion-input type="text" [(ngModel)]="pName"></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label floating>Mobile </ion-label>
+        <ion-input type="number"  [(ngModel)]="phone"></ion-input>
+      </ion-item>
+
+      <!-- <ion-item>
+        <ion-label floating> </ion-label>
+        <ion-input type=""  [(ngModel)]=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> </ion-label>
+        <ion-input type=""  [(ngModel)]=""></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating> </ion-label>
+        <ion-input type=""  [(ngModel)]=""></ion-input>
+      </ion-item> -->
+
+
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

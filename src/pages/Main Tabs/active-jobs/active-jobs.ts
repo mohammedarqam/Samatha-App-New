@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase } from 'angularfire2/database';
 
-/**
- * Generated class for the ActiveJobsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +10,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ActiveJobsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ajRef = this.db.list("Anm Assigns");
+  activejobs : Array<any> = [];
+
+  constructor(
+  public navCtrl: NavController,
+  public db : AngularFireDatabase, 
+  public navParams: NavParams,
+  ) {
+    this.getActiveJobs();
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActiveJobsPage');
+  getActiveJobs(){
+    this.ajRef.snapshotChanges().subscribe(snap=>{
+      this.activejobs = [];
+      snap.forEach(snip=>{
+        var temp : any = snip.payload.val();
+        temp.key = snip.payload.key;
+        this.activejobs.push(temp);
+      })
+      console.log( this.activejobs);
+    })
   }
 
 }
